@@ -119,7 +119,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: built-pages
-          path: ./.pages
+          path: ./artifact
+
+      - name: Extract artifact
+        run: |
+          mkdir -p ./.pages
+          cd ./artifact
+          tar -xf artifact.tar -C ../.pages
 
       # debug ls of ./.pages
       - name: List ./.pages contents
