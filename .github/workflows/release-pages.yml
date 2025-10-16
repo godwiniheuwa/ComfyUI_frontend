@@ -138,7 +138,7 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: .pages
-          vercel-args: '--prod'
+          vercel-args: ${{ github.ref_name == 'main' && '--prod' || '' }}
           github-comment: true
           alias-domains: |
             ${{ github.ref_name }}-comfyui-frontend-reports.vercel.app
