@@ -1,6 +1,7 @@
 import { toString } from 'es-toolkit/compat'
 
 import { PREFIX, SEPARATOR } from '@/constants/groupNodeConstants'
+import { MovingLinkBase } from '@/lib/litegraph/src/canvas/MovingLinkBase'
 import { LitegraphLinkAdapter } from '@/renderer/core/canvas/litegraph/litegraphLinkAdapter'
 import type { LinkRenderContext } from '@/renderer/core/canvas/litegraph/litegraphLinkAdapter'
 import { getSlotPosition } from '@/renderer/core/canvas/litegraph/slotCalculations'
@@ -4769,6 +4770,8 @@ export class LGraphCanvas implements CustomEventDispatcher<LGraphCanvasEventMap>
               }
             )
           }
+          if (renderLink instanceof MovingLinkBase)
+            renderLink.drawConnectionCircle(ctx)
 
           ctx.fillStyle = colour
           ctx.beginPath()
