@@ -1,1 +1,1 @@
-export const isQPOV2Enabled = false
+export const isQPOV2Enabled = true
